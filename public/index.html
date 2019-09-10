@@ -1,0 +1,1053 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+
+  <!--Load the AJAX API-->
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6Zh5HsEPeyGkktmpXijxz0NerXxlDq6Q&libraries=places">
+  </script>
+  <!-- Added a link to our external stylesheet-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- overpass googlefont link -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Overpass|Josefin+Sans:400i|Merriweather|Roboto&amp;display=swap&amp;display=swap"
+    rel="stylesheet">
+  <!--  -->
+  <!-- font awesome cdn lin -->
+  <script src="https://kit.fontawesome.com/ab37c1628c.js"></script>
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css"
+    media="all">
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+  <!--  -->
+  <!-- animation link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css">
+  <script src="assets/js/map.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+  <title>Road Trip Hero</title>
+
+  <style>
+    body {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .btn-success {
+      margin-right: 20px;
+      margin-left: auto;
+      margin-top: 10px;
+      text-align: center;
+      background-color: #263238 !important;
+      padding: 10px 10px 10px 10px;
+      font-size: 20px;
+      border: solid white 2px;
+      border-radius: 25px;
+      text-shadow: 2px 2px 4px #000000;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: white;
+      border: solid white 2px;
+      border-radius: 25px;
+      font-size: 30px;
+      padding: 10px 10px 10px 10px;
+      text-shadow: 2px 2px 4px #000000;
+      font-weight: 800;
+    }
+
+    .border {
+      border: solid #263238 2px;
+    }
+
+    .title {
+      color: white;
+      font-size: 22px;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    .submit {
+      background-color: #263238;
+      padding: 10px 10px 10px 10px;
+      font-size: 25px;
+      border: solid white 2px;
+      border-radius: 25px;
+      text-shadow: 2px 2px 4px #000000;
+      margin-bottom: 20px;
+
+    }
+
+    .jumbotron {
+      background-image: url(https://res.cloudinary.com/delacue/image/upload/v1568044549/headerABackgroundLarge_bxquor.jpg);
+      background-size: cover;
+      padding-bottom: 5px;
+      text-align: center;
+      border: #000000;
+      border: solid;
+      border-radius: 25px;
+    }
+
+    .display-3 {
+      background: #15561e;
+      text-align: center;
+      display: inline;
+      padding: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    .lead {
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+      font-size: 35px;
+    }
+  </style>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Rubik:300);
+  </style>
+  <style>
+    html,
+    body {
+      font-family: "Rubik", sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidenav---sidenav---_2tBP {
+      background: #15561e !important;
+    }
+
+    .sidenav---expanded---1KdUL {
+      font-size: 32px;
+    }
+
+    /*! react-sidenav v0.4.5 | (c) 2019 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+    .sidenav---sidenav---_2tBP {
+      position: fixed !important;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1006;
+      min-width: 64px;
+      background: #52AA5E;
+      transition: min-width 0.15s;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
+      display: none;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---sidenav-subnav---1EN61 {
+      display: block;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+      min-width: 240px;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ- .sidenav---navicon---3gCRo+.sidenav---navtext---1AE_f {
+      display: inline-block;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---expandable---3_dr7>.sidenav---navitem---9uL5T {
+      cursor: pointer;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      position: static;
+      border: none;
+      float: left;
+      clear: both;
+      width: 100%;
+      background: transparent;
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      display: block;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      display: none;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47 {
+      position: relative;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47::before {
+      content: " ";
+      width: 100%;
+      height: 28px;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:first-child {
+      display: none;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:hover::before {
+      background: #fff;
+      font-family: "Rubik", sans-serif;
+      opacity: 0.15;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+      filter: alpha(opacity=15);
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47::before {
+      content: " ";
+      width: 100%;
+      height: 28px;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      font-family: "Rubik", sans-serif;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T {
+      color: #fff;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T::before {
+      content: " ";
+      width: 2px;
+      height: 20px;
+      left: 10px;
+      top: 4px;
+      position: absolute;
+      border-left: 2px #fff solid;
+      font-family: "Rubik", sans-serif;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:hover>.sidenav---navitem---9uL5T {
+      background: transparent;
+      color: #fff;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T {
+      color: #f9dcdd;
+      padding: 0 14px 0 20px;
+      line-height: 28px;
+      font-family: "Rubik", sans-serif;
+    }
+
+    .sidenav---sidenav-toggle---1KRjR {
+      position: relative;
+      float: left;
+      width: 64px;
+      height: 64px;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      background-image: none;
+      border: 0;
+      border-radius: 0;
+      cursor: pointer;
+    }
+
+    .sidenav---sidenav-toggle---1KRjR:focus {
+      outline: none;
+    }
+
+    .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: all 0.15s;
+      opacity: 0.7;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+      filter: alpha(opacity=70);
+    }
+
+    .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02+.sidenav---icon-bar---u1f02 {
+      margin-top: 4px;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+      width: 25px;
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(2) {
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(3) {
+      margin-top: -8px;
+      transform: rotate(-45deg);
+    }
+
+    .sidenav---sidenav-nav---3tvij {
+      float: left;
+      padding: 0;
+      margin: 0;
+      clear: both;
+      list-style: none;
+      width: 100%;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ- {
+      clear: both;
+      position: relative;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T {
+      cursor: default;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T::after {
+      background: #fff;
+      opacity: 0.15;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+      filter: alpha(opacity=15);
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: 0.2;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+      filter: alpha(opacity=20);
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: 0.25;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+      filter: alpha(opacity=25);
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: 0.2;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+      filter: alpha(opacity=20);
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+      opacity: 1;
+      -ms-filter: none;
+      filter: none;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+      color: #fff;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>* {
+      color: #fff;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T {
+      position: relative;
+      display: block;
+      line-height: 50px;
+      height: 50px;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #fff;
+      font-size: 25px;
+      font-family: "Rubik", sans-serif;
+      cursor: pointer
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T:focus {
+      outline: 0;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      z-index: -1;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+      color: rgb(221, 249, 220);
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>* {
+      color: #ddf9dc;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+      display: block;
+      float: left;
+      width: 64px;
+      height: 50px;
+      margin-right: -6px;
+      vertical-align: top;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: transparent;
+      opacity: 0.7;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+      filter: alpha(opacity=70);
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo+.sidenav---navtext---1AE_f {
+      display: none;
+    }
+
+    .sidenav---sidenav-subnav---1EN61 {
+      min-width: 200px;
+      position: absolute;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 64px;
+      background: #fff;
+      border: 1px rgb(138, 192, 138) solid;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:first-child {
+      margin: 0 24px;
+      line-height: 48px;
+      border-bottom: 1px rgb(129, 173, 132) solid;
+      font-size: 25px;
+      font-weight: normal;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:nth-child(2) {
+      margin-top: 8px;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:last-child {
+      margin-bottom: 8px;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T {
+      color: #35603D;
+      font-weight: bold;
+      background: none;
+      cursor: default;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T:hover {
+      background: #fff;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T {
+      display: block;
+      text-decoration: none;
+      color: #222;
+      font-size: 25px;
+      line-height: 30px;
+      padding: 0 24px;
+      cursor: pointer;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T:hover {
+      background: #eee;
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T:focus {
+      outline: 0;
+    }
+
+    .sidenav---sidenav---_2tBP {
+      box-sizing: border-box;
+      line-height: 20px;
+    }
+
+    .sidenav---sidenav---_2tBP *,
+    .sidenav---sidenav---_2tBP *:before,
+    .sidenav---sidenav---_2tBP *:after {
+      box-sizing: inherit;
+    }
+
+    .sidenav---sidenav---_2tBP {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1006;
+      min-width: 64px;
+      background: #52AA5E;
+      transition: min-width .15s
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
+      display: none
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---sidenav-subnav---1EN61 {
+      display: block
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+      min-width: 240px
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ- .sidenav---navicon---3gCRo+.sidenav---navtext---1AE_f {
+      display: inline-block
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---expandable---3_dr7>.sidenav---navitem---9uL5T {
+      cursor: pointer
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      position: static;
+      border: none;
+      float: left;
+      clear: both;
+      width: 100%;
+      background: 0 0;
+      overflow: hidden;
+      box-shadow: none
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      display: block
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+      display: none
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47 {
+      position: relative
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47::before {
+      content: " ";
+      width: 100%;
+      height: 28px;
+      position: absolute;
+      top: 0;
+      z-index: -1
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:first-child {
+      display: none
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:hover::before {
+      background: #fff;
+      opacity: .15
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47::before {
+      content: " ";
+      width: 100%;
+      height: 28px;
+      position: absolute;
+      top: 0;
+      z-index: -1
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T {
+      color: #fff
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T::before {
+      content: " ";
+      width: 2px;
+      height: 20px;
+      left: 10px;
+      top: 4px;
+      position: absolute;
+      border-left: 2px #fff solid
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:hover>.sidenav---navitem---9uL5T {
+      background: 0 0;
+      color: #fff
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T {
+      color: #dff9dc;
+      padding: 0 14px 0 20px;
+      line-height: 28px
+    }
+
+    .sidenav---sidenav-toggle---1KRjR {
+      position: relative;
+      float: left;
+      width: 64px;
+      height: 64px;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      background-image: none;
+      border: 0;
+      border-radius: 0;
+      cursor: pointer
+    }
+
+    .sidenav---sidenav-toggle---1KRjR:focus {
+      outline: 0
+    }
+
+    .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: all .15s;
+      opacity: .7
+    }
+
+    .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02+.sidenav---icon-bar---u1f02 {
+      margin-top: 4px
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+      width: 25px
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(1) {
+      transform: rotate(45deg)
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(2) {
+      opacity: 0
+    }
+
+    .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(3) {
+      margin-top: -8px;
+      transform: rotate(-45deg)
+    }
+
+    .sidenav---sidenav-nav---3tvij {
+      float: left;
+      padding: 0;
+      margin: 0;
+      clear: both;
+      list-style: none;
+      width: 100%
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ- {
+      clear: both;
+      position: relative
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T {
+      cursor: default
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T::after {
+      background: #fff;
+      opacity: .15
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: .2
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: .25
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL>.sidenav---navitem---9uL5T::after {
+      background: #000;
+      opacity: .2
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+      opacity: 1;
+      -ms-filter: none;
+      filter: none
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+      color: #fff
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>* {
+      color: #fff
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T {
+      position: relative;
+      display: block;
+      line-height: 50px;
+      height: 50px;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #fff;
+      font-size: 25px;
+      font-family: "Rubik", sans-serif;
+      font-weight: 500;
+      cursor: pointer
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T:focus {
+      outline: 0
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      opacity: 0;
+      z-index: -1
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+      color: #def9dc
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*,
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>* {
+      color: #def9dc
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+      display: block;
+      float: left;
+      width: 64px;
+      height: 50px;
+      margin-right: -6px;
+      vertical-align: top;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: transparent;
+      opacity: .7;
+      line-height: 50px;
+      text-align: center
+    }
+
+    .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo+.sidenav---navtext---1AE_f {
+      display: none
+    }
+
+    .sidenav---sidenav-subnav---1EN61 {
+      min-width: 200px;
+      position: absolute;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 64px;
+      background: #fff;
+      border: 1px #bbb solid;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, .15)
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:first-child {
+      margin: 0 24px;
+      line-height: 48px;
+      border-bottom: 1px #ccc solid;
+      font-size: 14px;
+      font-weight: 400
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:nth-child(2) {
+      margin-top: 8px
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:last-child {
+      margin-bottom: 8px
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T {
+      color: #52AA5E;
+      font-weight: 700;
+      background: 0 0;
+      cursor: default
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y>.sidenav---navitem---9uL5T:hover {
+      background: #fff
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T {
+      display: block;
+      text-decoration: none;
+      color: #222;
+      font-size: 25px;
+      line-height: 30px;
+      padding: 0 24px;
+      cursor: pointer
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T:hover {
+      background: #eee
+    }
+
+    .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T:focus {
+      outline: 0
+    }
+
+    .sidenav---sidenav---_2tBP {
+      box-sizing: border-box;
+      line-height: 20px
+    }
+
+    .sidenav---sidenav---_2tBP *,
+    .sidenav---sidenav---_2tBP :after,
+    .sidenav---sidenav---_2tBP :before {
+      box-sizing: inherit
+    }
+
+    a {
+      margin-left: 6px;
+    }
+  </style>
+  <style>
+    body {
+      background-image: url(https://res.cloudinary.com/delacue/image/upload/v1568044408/bgSVG_bmmj0p.svg);
+      background-size: cover;
+    }
+
+    .card {
+      border: solid;
+      border-color: #3b3b3b;
+      text-align: center;
+      border-radius: 25px;
+      font-family: 'Overpass', sans-serif;
+      width: 500px;
+      margin-bottom: 15px;
+      margin-left: 60px;
+      /* margin-right: 50px; */
+      /* font-family: 'Merriweather', serif; */
+      /* font-family: 'Roboto', sans-serif; */
+      /* font-family: 'Josefin Sans', sans-serif; */
+    }
+
+    .card-header {
+      background: #15561e;
+      font-family: 'Merriweather', serif;
+      font-size: 20px;
+      color: white;
+      text-shadow: 1px 1px 2px #000000;
+      font-weight: 900;
+      border-radius: 21px 21px 0px 0px !important;
+
+
+    }
+
+    .card-body {
+      color: black;
+      text-shadow: 1px 1px 2px white;
+      font-weight: 200;
+      background: #CDE1B0;
+      background-image: url(https://res.cloudinary.com/delacue/image/upload/o_42/v1567998993/windyRoad_h2w8jx.png);
+      font-size: 16px;
+      background-size: cover;
+      /* font-family: 'Overpass', sans-serif; */
+      font-family: 'Merriweather', serif;
+
+
+    }
+
+    .card-footer {
+      font-family: 'Overpass', sans-serif;
+
+    }
+
+    .fa-trash {
+      margin-right: 10px;
+    }
+
+    a {
+      color: white !important;
+    }
+
+    .btn-secondary {
+      background-color: #263238;
+      padding: 10px 10px 10px 10px;
+      font-size: 20px;
+      border: solid white 2px;
+      border-radius: 25px;
+      text-shadow: 2px 2px 4px #000000;
+      margin-bottom: 20px;
+    }
+  </style>
+  <style>
+    .leaflet-container {
+      height: 600px;
+      width: 100%;
+      max-width: 600px;
+      border: solid;
+      border-radius: 25px;
+      border: black;
+
+    }
+
+    .map {
+      text-align: center !important;
+    }
+
+    a {
+      color: white !important;
+    }
+
+    .col-md-5 {
+      -ms-flex: 0 0 41.666667%;
+      flex: 1 0 41.666667% !important;
+      /* max-width: 41.666667%; */
+    }
+
+    footer {
+      display: none;
+    }
+  </style>
+  <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Bootstrap&quot;:-1}">
+  <script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script>
+</head>
+
+<body onload="initialize();">
+  <div id="root">
+    <div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+          <h1 class="display-3">Road Trip Hero</h1>
+          <p class="lead">Be Your Own Hero</p>
+        </div>
+      </div>
+    </div>
+    <nav class="sidenav---sidenav---_2tBP sidenav---collapsed---LQDEv"><button role="button"
+        class="sidenav---sidenav-toggle---1KRjR" aria-expanded="false"><span
+          class="sidenav---icon-bar---u1f02"></span><span class="sidenav---icon-bar---u1f02"></span><span
+          class="sidenav---icon-bar---u1f02"></span></button>
+      <div role="menu" class="sidenav---sidenav-nav---3tvij">
+        <div role="presentation" class="sidenav---sidenav-navitem---uwIJ-">
+          <div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1">
+            <div class="sidenav---navicon---3gCRo"><img
+                src="https://res.cloudinary.com/delacue/image/upload/v1567997738/GoldRTHbadge_gr.png" alt="RTH badge"
+                style="width: 40px; height: auto;"></div>
+            <div class="sidenav---navtext---1AE_f"><a href="/">Road Trip Hero</a></div>
+          </div>
+        </div>
+        <div role="presentation" class="sidenav---sidenav-navitem---uwIJ-">
+          <div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1">
+            <div class="sidenav---navicon---3gCRo"><i class="fas fa-road" aria-hidden="true"
+                style="font-size: 30px;"></i></div>
+            <div class="sidenav---navtext---1AE_f"><a href="/planner">Trip Planner</a></div>
+          </div>
+        </div>
+        <div role="presentation" class="sidenav---sidenav-navitem---uwIJ-">
+          <div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1">
+            <div class="sidenav---navicon---3gCRo"><i class="fas fa-map-marked-alt" aria-hidden="true"
+                style="font-size: 30px;"></i></div>
+            <div class="sidenav---navtext---1AE_f"><a href="/results">Map</a></div>
+          </div>
+        </div>
+        <div role="presentation" class="sidenav---sidenav-navitem---uwIJ-">
+          <div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1">
+            <div class="sidenav---navicon---3gCRo"><i class="far fa-comments" aria-hidden="true"
+                style="font-size: 30px;"></i></div>
+            <div class="sidenav---navtext---1AE_f"><a href="/">Contact Us</a></div>
+          </div>
+        </div>
+        <div role="presentation" class="sidenav---sidenav-navitem---uwIJ-">
+          <div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1">
+            <div class="sidenav---navicon---3gCRo"><i class="fas fa-power-off" aria-hidden="true"
+                style="font-size: 30px;"></i></div>
+            <div class="sidenav---navtext---1AE_f"><a href="/">Log Out</a></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+          <div id="map" class="map" style="width: 600px; height: 500px;"></div>
+        </div>
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-header">Be Your Own Hero! </div>
+            <div class="card-body">
+              <div class="card-title">Overall Safety Rating: 74%</div>
+              <p class="card-text"> route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
+              </p>
+              <p class="card-text">Destination: <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
+              </p>
+              <p class="card-text">Number of stops: </p><button class="btn btn-secondary" type="submit"
+                onclick="route()">Submit</button>
+            </div>
+            <div class="card-footer"><i class="fa fa-trash" aria-hidden="true" style="font-size: 30px;"></i>Delete Trip
+            </div>
+          </div>
+        </div>
+      
+      <footer>
+        <div class="row" valign="top">
+
+          <div id="side_bar" style="width:200px; height: 600px; overflow: auto"></div>
+          <div id="zipcodes"></div>
+        </div>
+        <div id="status"></div>
+      </footer>
+
+
+      <script src="/static/js/bundle.js"></script>
+      <script src="/static/js/0.chunk.js"></script>
+      <script src="/static/js/main.chunk.js"></script>
+      <script src="/main.a60665a8710d1f8d927c.hot-update.js"></script>
+
+</body>
+
+</html>
